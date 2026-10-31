@@ -80,5 +80,42 @@ footer {
 
 <footer>PRO GAMING X © 2026</footer>
 
+<section id="sensitivity-calculator" style="background:#151515;color:white;padding:20px;margin:20px 0;border-radius:15px;text-align:center;">
+  <h2 style="color:#00ff88;">🎯 PUBG Sensitivity Calculator</h2>
+  <p>Choose your playing style:</p>
+
+  <select id="playStyle" style="padding:12px;width:90%;margin:10px;border-radius:8px;">
+    <option value="low">Low Sensitivity</option>
+    <option value="medium" selected>Medium Sensitivity</option>
+    <option value="high">High Sensitivity</option>
+  </select>
+
+  <button onclick="calculateSensitivity()" style="padding:12px 20px;background:#00ff88;border:0;border-radius:8px;font-weight:bold;">
+    Calculate Settings
+  </button>
+
+  <div id="result" style="margin-top:20px;font-size:17px;line-height:2;"></div>
+</section>
+
+<script>
+function calculateSensitivity() {
+  const style = document.getElementById("playStyle").value;
+
+  const settings = {
+    low: {camera:80, ads:70, gyro:150},
+    medium: {camera:120, ads:100, gyro:250},
+    high: {camera:150, ads:130, gyro:300}
+  };
+
+  const s = settings[style];
+
+  document.getElementById("result").innerHTML =
+    "<h3>Recommended Starter Settings</h3>" +
+    "Camera: " + s.camera + "<br>" +
+    "ADS: " + s.ads + "<br>" +
+    "Gyroscope: " + s.gyro;
+}
+</script>
+
 </body>
 </html>
