@@ -159,6 +159,57 @@ result.innerHTML = "<h3 style='color:#00ff88'>Starter Settings</h3>" +
 "<br>ADS: " + s.ads + "<br>Gyroscope: " + s.gyro +
 "<p>Starter suggestions only. Adjust by testing.</p>";
 }
+</scri
+<section style="background:#101820;color:white;padding:20px;border-radius:16px;margin:20px 0;text-align:center;font-family:Arial;">
+  <h2 style="color:#00ff99;">PRO GAMING X</h2>
+  <h3>📱 iPad View Guide</h3>
+  <p>Select Your Device</p>
+
+  <select id="viewDevice" style="width:100%;padding:13px;border-radius:8px;">
+    <option value="">Choose Device</option>
+    <option value="android">Android</option>
+    <option value="iphone">iPhone</option>
+  </select>
+
+  <button onclick="showViewGuide()" style="width:100%;padding:14px;background:#00ff99;border:0;border-radius:8px;margin-top:12px;font-weight:bold;">
+    SHOW MY GUIDE
+  </button>
+
+  <div id="viewGuideResult" style="text-align:left;line-height:1.8;margin-top:20px;"></div>
+</section>
+
+<script>
+function showViewGuide(){
+  const device=document.getElementById("viewDevice").value;
+  const result=document.getElementById("viewGuideResult");
+
+  if(!device){
+    result.innerHTML="Please select your device.";
+    return;
+  }
+
+  if(device==="android"){
+    result.innerHTML=
+    "<h3 style='color:#00ff99'>Android Guide</h3>"+
+    "1. Open your phone Settings.<br>"+
+    "2. Find Display or Full Screen Apps.<br>"+
+    "3. Check whether PUBG supports full-screen display.<br>"+
+    "4. Open PUBG and check its official Graphics and Controls settings.<br>"+
+    "5. Customize your HUD for comfortable gameplay.";
+  }else{
+    result.innerHTML=
+    "<h3 style='color:#00ff99'>iPhone Guide</h3>"+
+    "1. Open iPhone Settings.<br>"+
+    "2. Check Display & Brightness settings.<br>"+
+    "3. Open PUBG and check its official Graphics settings.<br>"+
+    "4. Customize your HUD in Controls.<br>"+
+    "5. Use the display options supported by your iPhone.";
+  }
+
+  result.innerHTML +=
+  "<p style='color:#ffcc66'>Note: This guide cannot unlock iPad-only FOV or change PUBG game files.</p>";
+}
 </script>
+pt>
 </body>
 </html>
