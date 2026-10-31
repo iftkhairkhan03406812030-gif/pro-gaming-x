@@ -116,6 +116,49 @@ function calculateSensitivity() {
     "Gyroscope: " + s.gyro;
 }
 </script>
+<script>
+document.getElementById("sensitivity-calculator")?.remove();
+</script>
 
+<section style="background:#151515;color:white;padding:20px;border-radius:15px;text-align:center;margin:20px 0;">
+<h2 style="color:#00ff88;">🎯 PRO GAMING X</h2>
+<h3>Mobile Sensitivity Finder</h3>
+<p>Enter Your Mobile Model</p>
+
+<input id="phoneName" placeholder="e.g. Infinix Hot 40"
+style="padding:13px;width:90%;border-radius:8px;">
+
+<button onclick="findPhoneSettings()"
+style="padding:12px;background:#00ff88;border:0;border-radius:8px;margin:12px;">
+Find My Settings
+</button>
+
+<div id="phoneResult" style="line-height:2;margin-top:15px;"></div>
+</section>
+
+<script>
+function findPhoneSettings() {
+let phone = document.getElementById("phoneName").value.trim().toLowerCase();
+let result = document.getElementById("phoneResult");
+
+if (!phone) {
+result.innerHTML = "Please enter your mobile model.";
+return;
+}
+
+let s = {camera:120, ads:100, gyro:250};
+
+if (phone.includes("iphone")) s = {camera:130,ads:110,gyro:280};
+else if (phone.includes("redmi") || phone.includes("poco")) s = {camera:125,ads:105,gyro:260};
+else if (phone.includes("samsung")) s = {camera:120,ads:100,gyro:250};
+else if (phone.includes("infinix") || phone.includes("tecno")) s = {camera:115,ads:95,gyro:240};
+else if (phone.includes("realme")) s = {camera:125,ads:105,gyro:260};
+
+result.innerHTML = "<h3 style='color:#00ff88'>Starter Settings</h3>" +
+"Mobile: " + phone + "<br>Camera: " + s.camera +
+"<br>ADS: " + s.ads + "<br>Gyroscope: " + s.gyro +
+"<p>Starter suggestions only. Adjust by testing.</p>";
+}
+</script>
 </body>
 </html>
