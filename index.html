@@ -241,6 +241,37 @@ function searchPhone() {
     ? found.map(p => `<p><b>${p.name}</b><br>${p.info}</p>`).join("")
     : "Mobile not found. Try another model.";
 }
+<section style="padding:20px;background:#111;color:white;border-radius:12px;margin:20px 0;">
+  <h2>📱 DEVICE SEARCH</h2>
+  <input id="phoneSearch" type="text"
+    placeholder="Enter mobile model..."
+    style="width:100%;padding:13px;border-radius:8px;">
+  <button onclick="searchPhone()"
+    style="padding:12px;margin-top:10px;width:100%;background:#00c853;color:white;border:0;border-radius:8px;">
+    SEARCH
+  </button>
+  <div id="phoneResult" style="margin-top:15px;"></div>
+</section>
+
+<script>
+const phones = [
+  {name:"Huawei P30", info:"6.1-inch OLED display"},
+  {name:"LG V60", info:"6.8-inch OLED display"},
+  {name:"Samsung Galaxy S24", info:"6.2-inch display"},
+  {name:"iPhone 15", info:"6.1-inch display"},
+  {name:"Redmi Note 13", info:"AMOLED display"},
+  {name:"Infinix Note 40", info:"AMOLED display"}
+];
+
+function searchPhone() {
+  const q = document.getElementById("phoneSearch").value.trim().toLowerCase();
+  const result = document.getElementById("phoneResult");
+  const found = phones.filter(p => p.name.toLowerCase().includes(q));
+
+  result.innerHTML = q && found.length
+    ? found.map(p => `<p><b>${p.name}</b><br>${p.info}</p>`).join("")
+    : "Mobile not found. Try another model.";
+}
 </script>
 </body>
 </html>
